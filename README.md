@@ -43,11 +43,12 @@ If you complete all of the required use cases and are looking for additional cha
    7. The transfer request should appear in both users' list of transfers (use case #5).
 8. As an authenticated user of the system, I need to be able to see my *Pending* transfers.
 9. As an authenticated user of the system, I need to be able to either approve or reject a Request Transfer.
-   1. I can't "approve" a given Request Transfer for more TE Bucks than I have in my account.
-   2. The Request Transfer status is *Approved* if I approve, or *Rejected* if I reject the request.
-   3. If the transfer is approved, the requester's account balance is increased by the amount of the request.
-   4. If the transfer is approved, the requestee's account balance is decreased by the amount of the request.
-   5. If the transfer is rejected, no account balance changes.
+   1. I should not be able to "approve" or "reject" transfers that are from an account that does not belong to me.
+   2. I can't "approve" a given Request Transfer for more TE Bucks than I have in my account.
+   3. The Request Transfer status is *Approved* if I approve, or *Rejected* if I reject the request.
+   4. If the transfer is approved, the requester's account balance is increased by the amount of the request.
+   5. If the transfer is approved, the requestee's account balance is decreased by the amount of the request.
+   6. If the transfer is rejected, no account balance changes.
 
 ## Sample screens
 
