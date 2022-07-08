@@ -70,7 +70,8 @@ public class App {
             consoleService.printMainMenu();
             menuSelection = consoleService.promptForMenuSelection("Please choose an option: ");
             if (menuSelection == 1) {
-                viewCurrentBalance();
+//                viewCurrentBalance();
+                viewCurrentBalance(currentUser.getUser().getId());
             } else if (menuSelection == 2) {
                 viewTransferHistory();
             } else if (menuSelection == 3) {
@@ -88,9 +89,10 @@ public class App {
         }
     }
 
-	private void viewCurrentBalance() {
+	private void viewCurrentBalance(Long id) {
 		// TODO Auto-generated method stub
-        BigDecimal currentBalance = tenmoService.getCurrentBalance();
+        BigDecimal currentBalance = tenmoService.getCurrentBalance(id);
+        // currentUser.getUser().getId()
         System.out.println(currentBalance);
 	}
 

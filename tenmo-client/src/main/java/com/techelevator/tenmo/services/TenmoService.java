@@ -17,9 +17,9 @@ public class TenmoService {
         this.baseUrl = baseUrl;
     }
 
-    public BigDecimal  getCurrentBalance() {
+    public BigDecimal getCurrentBalance(Long id) {
         try {
-            return restTemplate.getForObject(baseUrl + "account", BigDecimal.class);
+            return restTemplate.getForObject(baseUrl + "account/" + id, BigDecimal.class);
         } catch (RestClientResponseException | ResourceAccessException ex) {
             BasicLogger.log(ex.getMessage());
             System.out.println(ex.getMessage());

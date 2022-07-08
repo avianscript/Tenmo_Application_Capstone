@@ -3,9 +3,11 @@ package com.techelevator.tenmo.dao;
 import com.techelevator.tenmo.model.Account;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
 public class JdbcAccountDao implements AccountDao{
 
     private JdbcTemplate jdbcTemplate;
@@ -16,13 +18,12 @@ public class JdbcAccountDao implements AccountDao{
 
 
     @Override
-    public Account findBalance() {
+    public BigDecimal findBalance(Long id) {
         BigDecimal balance;
         String sql = "SELECT balance FROM account WHERE user_id = ?";
 
         try {
-            balance = jdbcTemplate.query
-//            Long id = jdbcTemplate.queryForObject(sql, Long.class, username);
+            balance = jdbcTemplate.queryForObject(sql, BigDecimal.class, id);
             return balance;
         } catch (EmptyResultDataAccessException ex) {
             return null;
