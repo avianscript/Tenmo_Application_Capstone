@@ -1,6 +1,7 @@
 package com.techelevator.tenmo;
 
 import com.techelevator.tenmo.model.AuthenticatedUser;
+import com.techelevator.tenmo.model.Transfer;
 import com.techelevator.tenmo.model.User;
 import com.techelevator.tenmo.model.UserCredentials;
 import com.techelevator.tenmo.services.AuthenticationService;
@@ -114,6 +115,7 @@ public class App {
         //have to put in param of how much we're sending
         //return list of users
         User[] allUsers = tenmoService.displayListOfUsers();
+
         if (allUsers != null) {
             System.out.println("*********************");
             System.out.println("Users");
@@ -124,20 +126,28 @@ public class App {
                 System.out.println(user.getUsername());
             }
             System.out.println("");
-//            System.out.print("Enter ID of user you are sending to (0 to cancel): ");
-            String enterUserId = "Enter ID of user you are sending to (0 to cancel): ";
-            int chosenUser;
-            do {
-                chosenUser = consoleService.promptForInt(enterUserId);
-//                    if (chosenUser == currentUser.getUser().getId()) {
-//                        System.out.println("Nice try! But NO.");
-                    } while (chosenUser == currentUser.getUser().getId());
 
+            String enterUserId = "Enter ID of user you are sending to (0 to cancel): ";
+            int chosenUserId;
+            do {
+                chosenUserId = consoleService.promptForInt(enterUserId);
+                    } while (chosenUserId == currentUser.getUser().getId());
+
+
+            // TRANSFER AMOUNT VARIABLE = TRANSFER AMOUNT
             String enterTransferAmount = "Enter Amount: ";
             BigDecimal transferAmount = consoleService.promptForBigDecimal(enterTransferAmount);
-            System.out.println(chosenUser + " " + transferAmount);
+            System.out.println(chosenUserId + " " + transferAmount);
 
+
+            Transfer transfer = tenmoService.createTransfer(transferAmount, currentUser.getUser().getId(), chosenUserId);
         }
+
+        // Transfer includes User IDs of the from and to users and the amount of TE Bucks
+        // BigDecimal transferAmount;
+        // int chosenUser = userId of the accountTo
+            // JOIN user table on userId WHERE userId = accountId
+
 
 
 	}
