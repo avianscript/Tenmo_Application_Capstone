@@ -30,4 +30,8 @@ public class TenmoController {
 //        return departmentService.getDepartments();
     }
 
+    @GetMapping("tenmoUser/")
+    public User[] displayListOfUsers() {
+        return userService.displayListOfUsers(); }
+
 }

@@ -1,12 +1,14 @@
 package com.techelevator.tenmo;
 
 import com.techelevator.tenmo.model.AuthenticatedUser;
+import com.techelevator.tenmo.model.User;
 import com.techelevator.tenmo.model.UserCredentials;
 import com.techelevator.tenmo.services.AuthenticationService;
 import com.techelevator.tenmo.services.ConsoleService;
 import com.techelevator.tenmo.services.TenmoService;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class App {
 
@@ -78,6 +80,7 @@ public class App {
                 viewPendingRequests();
             } else if (menuSelection == 4) {
                 sendBucks();
+
             } else if (menuSelection == 5) {
                 requestBucks();
             } else if (menuSelection == 0) {
@@ -108,7 +111,35 @@ public class App {
 
 	private void sendBucks() {
 		// TODO Auto-generated method stub
-		
+        //have to put in param of how much we're sending
+        //return list of users
+        User[] allUsers = tenmoService.displayListOfUsers();
+        if (allUsers != null) {
+            System.out.println("*********************");
+            System.out.println("Users");
+            System.out.println("ID         Name");
+            System.out.println("*********************");
+            for (User user : allUsers) {
+                System.out.print(user.getId() + "       ");
+                System.out.println(user.getUsername());
+            }
+            System.out.println("");
+//            System.out.print("Enter ID of user you are sending to (0 to cancel): ");
+            String enterUserId = "Enter ID of user you are sending to (0 to cancel): ";
+            int chosenUser;
+            do {
+                chosenUser = consoleService.promptForInt(enterUserId);
+//                    if (chosenUser == currentUser.getUser().getId()) {
+//                        System.out.println("Nice try! But NO.");
+                    } while (chosenUser == currentUser.getUser().getId());
+
+            String enterTransferAmount = "Enter Amount: ";
+            BigDecimal transferAmount = consoleService.promptForBigDecimal(enterTransferAmount);
+            System.out.println(chosenUser + " " + transferAmount);
+
+        }
+
+
 	}
 
 	private void requestBucks() {
