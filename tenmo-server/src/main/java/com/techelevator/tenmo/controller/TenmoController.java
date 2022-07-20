@@ -1,7 +1,7 @@
 package com.techelevator.tenmo.controller;
 
 import com.techelevator.tenmo.Services.AccountService;
-import com.techelevator.tenmo.Services.TransferService;
+//import com.techelevator.tenmo.Services.TransferService;
 import com.techelevator.tenmo.Services.UserService;
 import com.techelevator.tenmo.model.Transfer;
 import com.techelevator.tenmo.model.User;
@@ -16,12 +16,12 @@ public class TenmoController {
 
     private final UserService userService;
     private final AccountService accountService;
-    private final TransferService transferService;
-
-    public TenmoController(UserService userService, AccountService accountService, TransferService transferService)  {
+//    private final TransferService transferService;
+//     public TenmoController(UserService userService, AccountService accountService, TransferService transferService)
+    public TenmoController(UserService userService, AccountService accountService)  {
         this.userService = userService;
         this.accountService = accountService;
-        this.transferService = transferService;
+//        this.transferService = transferService;
     }
 
     @GetMapping("account/{id}")
@@ -34,9 +34,9 @@ public class TenmoController {
         return userService.displayListOfUsers();
     }
 
-    @GetMapping("transfer/")
-    public void createTransfer() {
-        transferService.createTransfer();
-    }
+//    @GetMapping("transfer/")
+//    public void createTransfer() {
+//        transferService.createTransfer();
+//    }
 
 }

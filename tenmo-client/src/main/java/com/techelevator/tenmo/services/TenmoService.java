@@ -46,15 +46,18 @@ public class TenmoService {
         }
     }
 
-    public void createTransfer(BigDecimal transferAmount, Long accountFromUserId, int accountToUserId) {
-
-        try {
-            Transfer transfer = restTemplate.postForObject(baseUrl + "transfer/"),
-
-        } catch (RestClientResponseException | ResourceAccessException ex) {
-            BasicLogger.log(ex.getMessage());
-            System.out.println(ex.getMessage());
-        }
+    /*
+    * THIS IS WHERE WE RAN OUT OF TIME ON FRIDAY... WE WERE CONNECTING THE DOTS BETWEEN THE TENMO SERVICE AND
+    * */
+//    public void createTransfer(BigDecimal transferAmount, Long accountFromUserId, int accountToUserId) {
+//
+//        try {
+//            Transfer transfer = restTemplate.postForObject(baseUrl + "transfer/"),
+//
+//        } catch (RestClientResponseException | ResourceAccessException ex) {
+//            BasicLogger.log(ex.getMessage());
+//            System.out.println(ex.getMessage());
+//        }
 
 
         /*
@@ -69,15 +72,15 @@ public class TenmoService {
             System.out.println(ex.getMessage());
         }
     }*/
-    }
-
-    public HttpEntity<Transfer> makeTransferEntity(Long accountFromUserId, int accountToUserId) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-//        headers.setBearerAuth(user.getToken());
-
-        return new HttpEntity<>(accountFromUserId, accountToUserId, headers);
-    }
+//    }
+//
+//    public HttpEntity<Transfer> makeTransferEntity(Long accountFromUserId, int accountToUserId) {
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+////        headers.setBearerAuth(user.getToken());
+//
+//        return new HttpEntity<>(accountFromUserId, accountToUserId, headers);
+//    }
 
     /*    public HttpEntity<Employee> makeEmployeeEntity(Employee employee, AuthenticatedUser user) {
         HttpHeaders headers = new HttpHeaders();

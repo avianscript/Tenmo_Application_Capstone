@@ -139,8 +139,10 @@ public class App {
             BigDecimal transferAmount = consoleService.promptForBigDecimal(enterTransferAmount);
             System.out.println(chosenUserId + " " + transferAmount);
 
-
-            Transfer transfer = tenmoService.createTransfer(transferAmount, currentUser.getUser().getId(), chosenUserId);
+            /*
+            * PAUSED FRIDAY
+            * */
+//            Transfer transfer = tenmoService.createTransfer(transferAmount, currentUser.getUser().getId(), chosenUserId);
         }
 
         // Transfer includes User IDs of the from and to users and the amount of TE Bucks
